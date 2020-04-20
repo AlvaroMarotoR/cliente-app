@@ -17,4 +17,6 @@ export class DirectivaComponent {
   setHabilitar(): void {
     this.habilitar = (this.habilitar)? false: true;
   }
+
+
 }
