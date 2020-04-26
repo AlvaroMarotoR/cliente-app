@@ -7,6 +7,15 @@ import { FooterComponent } from './footer/footer.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ClienteService } from './clientes/cliente.service'
+import { RouterModule, Routes} from '@angular/router'
+
+
+const routes: Routes = [
+  {path: '', redirectTo: '/clientes', pathMatch:'full'}, //Path vacio que redirige a clientes
+  {path: 'directivas', component: DirectivaComponent}, //Mapeamos una dirección a un componente
+  {path: 'clientes', component: ClientesComponent}
+]
+
 
 @NgModule({
   declarations: [
@@ -17,7 +26,8 @@ import { ClienteService } from './clientes/cliente.service'
     ClientesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes) //Le pasamos la variable del array de direcciones
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent]
